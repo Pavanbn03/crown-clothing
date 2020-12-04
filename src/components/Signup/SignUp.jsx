@@ -1,8 +1,8 @@
 import React from "react";
 import FromInput from "../FormInput/FormInput";
 import CustomButton from "../CustomButton/CustomButton";
-import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
-import './SignUp.scss'
+import { auth, createUserProfileDocument,signInWithGoogle } from "../../firebase/firebase.utils";
+import "./SignUp.scss";
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
@@ -80,7 +80,12 @@ class SignUp extends React.Component {
             label="Confirm Password"
             required
           ></FromInput>
-          <CustomButton type="submit">SIGN UP</CustomButton>
+          <div className="buttons">
+            <CustomButton type="submit">SIGN UP</CustomButton>
+            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+              SIGN UP with Google
+            </CustomButton>
+          </div>
         </form>
       </div>
     );
